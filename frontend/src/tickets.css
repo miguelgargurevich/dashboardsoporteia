@@ -1,0 +1,69 @@
+/* Paleta de colores: azul, gris, blanco, acentos en celeste y verde */
+/* Tablas modernas y responsivas */
+.modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.modern-table th {
+  background: #fff;
+  color: #232e3c;
+  font-weight: 600;
+  padding: 1rem 0.7rem;
+  text-align: left;
+  font-size: 1.05rem;
+  border-bottom: 2px solid #e0e4ea;
+}
+.modern-table td {
+  padding: 0.9rem 0.7rem;
+  border-bottom: 1px solid #e0e4ea;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+.modern-table tr:last-child td {
+  border-bottom: none;
+}
+.modern-table tr:hover {
+  background: #e3f2fd;
+  transition: background 0.2s;
+}
+.modern-table .icon {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.tickets-table th {
+  background: #fff;
+  color: #232e3c;
+}
+.tickets-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.ticket-cerrado td {
+  color: #388e3c;
+}
+.ticket-abierto td {
+  color: #1976d2;
+}
+
+@media (max-width: 900px) {
+  .modern-table th, .modern-table td,
+  .tickets-table th, .tickets-table td {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,144 @@
+/* Ventana del asistente IA flotante a la derecha */
+.iachat-window {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  max-width: 95vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  border: 1.5px solid #4fc3f7;
+  display: flex;
+  flex-direction: column;
+  z-index: 1100;
+  overflow: hidden;
+   animation: slideInRight 0.3s cubic-bezier(.4,0,.2,1); 
+    transition: transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.3s;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.iachat-window.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.iachat-window.close {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.iachat-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  left: auto;
+  background: linear-gradient(135deg, #1976d2 0%, #4fc3f7 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.iachat-header {
+  background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+  color: #fff;
+  padding: 1rem 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e4ea;
+}
+.iachat-messages {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  background: #f4f6fa;
+  overflow-y: auto;
+  max-height: 300px;
+}
+.iachat-msg {
+  margin-bottom: 0.7rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #e3f2fd;
+  color: #232e3c;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+}
+.iachat-msg.iachat-user {
+  background: #c8e6c9;
+  color: #388e3c;
+  text-align: right;
+}
+.iachat-msg.iachat-assistant {
+  background: #fffde7;
+  color: #fbc02d;
+  text-align: left;
+}
+.iachat-form {
+  display: flex;
+  padding: 1rem 1.2rem;
+  border-top: 1px solid #e0e4ea;
+  background: #fff;
+}
+.iachat-form input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 1rem;
+}
+.iachat-form button {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1.2rem;
+  margin-left: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.iachat-form button:hover {
+  background: #1976d2;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.iachat-messages {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  background: #f4f6fa;
+  overflow-y: auto;
+  max-height: unset;
+}
+.iachat-form {
+  display: flex;
+  padding: 1rem 1.2rem;
+  border-top: 1px solid #e0e4ea;
+  background: #fff;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .iachat-window {
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
