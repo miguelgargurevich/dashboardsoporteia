@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './styles/App.css';
 import LoginPage from './pages/LoginPage';
 import Layout from './components/Layout';
 import IAChat from './components/IAChat';

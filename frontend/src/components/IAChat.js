@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import '../iachat.css';
+import '../styles/iachat.css';
 import { FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
 
 const initialPrompt = `¡Hola! Soy tu asistente IA para el Dashboard de Soporte Técnico.
@@ -96,6 +96,7 @@ function IAChat({ user }) {
           </div>
           <form className="iachat-form" onSubmit={sendMessage}>
             <input
+              className="form-control"
               type="text"
               placeholder="Escribe tu consulta..."
               value={input}
@@ -103,7 +104,7 @@ function IAChat({ user }) {
               disabled={loading}
               autoFocus
             />
-            <button type="submit" disabled={loading || !input.trim()}><FaPaperPlane /></button>
+            <button type="submit" className="form-btn" disabled={loading || !input.trim()}><FaPaperPlane /></button>
           </form>
         </div>
       )}

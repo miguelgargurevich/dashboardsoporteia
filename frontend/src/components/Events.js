@@ -51,15 +51,15 @@ function Events({ user }) {
     <div className="events-container">
       <h2><FaCalendarAlt /> Eventos</h2>
       <form className="event-form" onSubmit={handleCreate}>
-        <input type="text" placeholder="Título" value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required />
+        <input type="text" placeholder="Título" value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} required className="form-control" />
         <input type="text" placeholder="Descripción" value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} />
         <input type="datetime-local" placeholder="Inicio" value={form.startDate} onChange={e => setForm(f => ({ ...f, startDate: e.target.value }))} required />
         <input type="datetime-local" placeholder="Fin" value={form.endDate} onChange={e => setForm(f => ({ ...f, endDate: e.target.value }))} required />
         <input type="text" placeholder="Lugar" value={form.location} onChange={e => setForm(f => ({ ...f, location: e.target.value }))} />
-        <button type="submit" disabled={loading}><FaPlus /> Crear evento</button>
+        <button type="submit" disabled={loading} className="form-btn"><FaPlus /> Crear evento</button>
       </form>
       {error && <div className="event-error">{error}</div>}
-      <table className="events-table">
+      <table className="events-table modern-table">
         <thead>
           <tr>
             <th>ID</th>

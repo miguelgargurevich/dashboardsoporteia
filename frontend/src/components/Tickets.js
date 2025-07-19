@@ -59,16 +59,16 @@ function Tickets({ user }) {
     <div className="tickets-container" style={{width:'100%', borderRadius:0, background:'var(--color-bg)'}}>
       <h2><FaTicketAlt style={{marginRight:8, color:'#1976d2'}} /> Tickets</h2>
       <form className="ticket-form" onSubmit={handleCreate}>
-        <select value={form.tipo} onChange={e => setForm(f => ({ ...f, tipo: e.target.value }))}>
+        <select value={form.tipo} onChange={e => setForm(f => ({ ...f, tipo: e.target.value }))} className="form-control">
           <option value="Incidente">Incidente</option>
           <option value="Requerimiento">Requerimiento</option>
         </select>
-        <input type="text" placeholder="Sistema" value={form.sistema} onChange={e => setForm(f => ({ ...f, sistema: e.target.value }))} required />
-        <input type="text" placeholder="Descripción" value={form.descripcion} onChange={e => setForm(f => ({ ...f, descripcion: e.target.value }))} required />
-        <button type="submit" disabled={loading}><FaPlus style={{marginRight:6}} /> Crear ticket</button>
+        <input type="text" placeholder="Sistema" value={form.sistema} onChange={e => setForm(f => ({ ...f, sistema: e.target.value }))} required className="form-control" />
+        <input type="text" placeholder="Descripción" value={form.descripcion} onChange={e => setForm(f => ({ ...f, descripcion: e.target.value }))} required className="form-control" />
+        <button type="submit" disabled={loading} className="form-btn"><FaPlus style={{marginRight:6}} /> Crear ticket</button>
       </form>
       {error && <div className="ticket-error">{error}</div>}
-      <table className="tickets-table">
+      <table className="tickets-table modern-table">
         <thead>
           <tr>
             <th><FaTicketAlt style={{marginRight:4}} /> ID</th>

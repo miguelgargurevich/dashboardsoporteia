@@ -57,15 +57,15 @@ function Resources({ user }) {
           <option value="nota">Nota</option>
           <option value="video">Video</option>
         </select>
-        <input type="text" placeholder="Título" value={form.titulo} onChange={e => setForm(f => ({ ...f, titulo: e.target.value }))} required />
+        <input type="text" placeholder="Título" value={form.titulo} onChange={e => setForm(f => ({ ...f, titulo: e.target.value }))} required className="form-control" />
         <input type="text" placeholder="URL o ruta de archivo" value={form.url} onChange={e => setForm(f => ({ ...f, url: e.target.value }))} />
         <input type="text" placeholder="Descripción" value={form.descripcion} onChange={e => setForm(f => ({ ...f, descripcion: e.target.value }))} />
         <input type="text" placeholder="Categoría" value={form.categoria} onChange={e => setForm(f => ({ ...f, categoria: e.target.value }))} />
         <input type="text" placeholder="Tags (separados por coma)" value={form.tags} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))} />
-        <button type="submit" disabled={loading}><FaPlus /> Crear recurso</button>
+        <button type="submit" disabled={loading} className="form-btn"><FaPlus /> Crear recurso</button>
       </form>
       {error && <div className="resource-error">{error}</div>}
-      <table className="resources-table">
+      <table className="resources-table modern-table">
         <thead>
           <tr>
             <th>ID</th>

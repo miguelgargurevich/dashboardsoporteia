@@ -3,7 +3,8 @@ import CalendarWidget from './CalendarWidget';
 import { FaSearch } from 'react-icons/fa';
 import { FaTasks, FaBook, FaLink, FaCalendarAlt, FaTicketAlt, FaTachometerAlt } from 'react-icons/fa';
 
-import '../dashboard.css';
+import '../styles/App.css';
+// import '../styles/dashboard.css';
 
 function Dashboard({ user }) {
   const [search, setSearch] = useState('');
@@ -38,12 +39,13 @@ function Dashboard({ user }) {
         
       <div className="dashboard-search">
         <input
+          className="form-control"
           type="text"
           placeholder="Buscar por texto, tags, tipo, fecha..."
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-        <button className="dashboard-search-btn" type="button">
+        <button className="form-btn" type="button">
           <FaSearch size={28} />
         </button>
       </div>
@@ -54,23 +56,23 @@ function Dashboard({ user }) {
         </div>
         <div className="dashboard-widget">
           <h3><FaCalendarAlt /> Próximos eventos</h3>
-          <ul>{summary.eventos.map((e, i) => <li key={i}>{e.title || e.titulo} <span>{e.startDate ? new Date(e.startDate).toLocaleDateString() : ''}</span></li>)}</ul>
+          <ul className="dashboard-list">{summary.eventos.map((e, i) => <li key={i}>{e.title || e.titulo} <span>{e.startDate ? new Date(e.startDate).toLocaleDateString() : ''}</span></li>)}</ul>
         </div>
         <div className="dashboard-widget">
           <h3><FaTasks /> Pendientes del día</h3>
-          <ul>{summary.pendientes.map((p, i) => <li key={i}>{p.titulo || p.descripcion}</li>)}</ul>
+          <ul className="dashboard-list">{summary.pendientes.map((p, i) => <li key={i}>{p.titulo || p.descripcion}</li>)}</ul>
         </div>
         <div className="dashboard-widget">
           <h3><FaBook /> Últimos recursos</h3>
-          <ul>{summary.recursos.map((r, i) => <li key={i}>{r.titulo}</li>)}</ul>
+          <ul className="dashboard-list">{summary.recursos.map((r, i) => <li key={i}>{r.titulo}</li>)}</ul>
         </div>
         <div className="dashboard-widget">
           <h3><FaTicketAlt /> Tickets abiertos</h3>
-          <ul>{summary.tickets.map((t, i) => <li key={i}>{t.descripcion} <span>({t.estado})</span></li>)}</ul>
+          <ul className="dashboard-list">{summary.tickets.map((t, i) => <li key={i}>{t.descripcion} <span>({t.estado})</span></li>)}</ul>
         </div>
         <div className="dashboard-widget">
           <h3><FaLink /> Actividades recientes</h3>
-          <ul>{summary.actividades.map((a, i) => <li key={i}>{a.descripcion || a.titulo}</li>)}</ul>
+          <ul className="dashboard-list">{summary.actividades.map((a, i) => <li key={i}>{a.descripcion || a.titulo}</li>)}</ul>
         </div>
       </div>
     </div>

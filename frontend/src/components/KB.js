@@ -62,7 +62,7 @@ function KB({ user }) {
         <button type="submit" disabled={loading}><FaPlus /> Crear artículo</button>
       </form>
       {error && <div className="kb-error">{error}</div>}
-      <table className="kb-table">
+      <table className="kb-table modern-table">
         <thead>
           <tr>
             <th>ID</th>

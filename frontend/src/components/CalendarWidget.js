@@ -66,42 +66,14 @@ function CalendarWidget({ eventos }) {
 
   return (
     <div className="calendar-widget">
-      <div className="calendar-header" style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%'}}>
-        <div style={{display:'flex',alignItems:'center'}}>
-          <h3 style={{margin:0}}><FaCalendarAlt style={{marginRight:'0.5rem'}} /> {new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} {currentYear}</h3>
+      <div className="calendar-header calendar-flex">
+        <div className="calendar-flex">
+          <h3><FaCalendarAlt className="calendar-icon" /> {new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} {currentYear}</h3>
         </div>
-        <div style={{display:'flex',alignItems:'center',gap:'0.5rem'}}>
-          <button onClick={handlePrevMonth} style={{
-            background:'#e3eafc',
-            border:'none',
-            fontSize:'1.5rem',
-            cursor:'pointer',
-            color:'#1976d2',
-            fontWeight:'bold',
-            borderRadius:'50%',
-            width:'2.5rem',
-            height:'2.5rem',
-            display:'flex',
-            alignItems:'center',
-            justifyContent:'center',
-            boxShadow:'0 1px 4px rgba(25,118,210,0.08)'
-          }}>&lt;</button>
-          <button onClick={handleNextMonth} style={{
-            background:'#e3eafc',
-            border:'none',
-            fontSize:'1.5rem',
-            cursor:'pointer',
-            color:'#1976d2',
-            fontWeight:'bold',
-            borderRadius:'50%',
-            width:'2.5rem',
-            height:'2.5rem',
-            display:'flex',
-            alignItems:'center',
-            justifyContent:'center',
-            boxShadow:'0 1px 4px rgba(25,118,210,0.08)'
-          }}>&gt;</button>
-          <button onClick={handleGoToday} style={{background:'#1976d2',border:'none',color:'#fff',fontSize:'1rem',fontWeight:'bold',borderRadius:'8px',padding:'0.3rem 1rem',cursor:'pointer'}}>Hoy</button>
+        <div className="calendar-flex calendar-actions">
+          <button className="calendar-btn calendar-btn-circle" onClick={handlePrevMonth}>&lt;</button>
+          <button className="calendar-btn calendar-btn-today" onClick={handleGoToday}>Hoy</button>
+          <button className="calendar-btn calendar-btn-circle" onClick={handleNextMonth}>&gt;</button>
         </div>
       </div>
       <div className="calendar-grid">
@@ -119,7 +91,6 @@ function CalendarWidget({ eventos }) {
               key={i}
               className={`calendar-cell${hasEvent ? ' event' : ''}${selectedDay === dayNum ? ' selected' : ''}`}
               onClick={() => handleDayClick(dayNum)}
-              style={{ cursor: hasEvent ? 'pointer' : 'default', border: selectedDay === dayNum ? '2px solid #1976d2' : 'none' }}
             >
               <span>{dayNum}</span>
               {hasEvent && <span className="calendar-dot"></span>}
